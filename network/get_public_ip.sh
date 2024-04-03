@@ -1,2 +1,2 @@
-#!/bin/bash
-echo "{\"public_ip\": \"$(curl -s ifconfig.me)\"}"
+# #!/bin/bash
+# echo "{\"public_ip\": \"$(curl -s ifconfig.me)\"}"

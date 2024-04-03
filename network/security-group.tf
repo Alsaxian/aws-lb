@@ -5,12 +5,12 @@ resource "aws_security_group" "private_sg" {
 
   name = "private_sg"
 
-  ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["${data.external.get_public_ip.result.public_ip}/32"]
-  }
+  # ingress {
+  #   from_port   = 22
+  #   to_port     = 22
+  #   protocol    = "tcp"
+  #   cidr_blocks = ["${data.external.get_public_ip.result.public_ip}/32"]
+  # }
 
   egress {
     from_port   = 0
@@ -21,6 +21,6 @@ resource "aws_security_group" "private_sg" {
 
 }
 
-data "external" "get_public_ip" {
-  program = ["sh", "./get_public_ip.sh"]
-}
+# data "external" "get_public_ip" {
+#   program = ["sh", "./get_public_ip.sh"]
+# }
