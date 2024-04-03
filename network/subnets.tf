@@ -25,10 +25,7 @@ resource "aws_subnet" "private_subnet" {
   map_public_ip_on_launch = false
   availability_zone       = each.value.availability_zone
   tags = {
-    Name = "PrivateSubnet${each.key}"
+    Name = "PrivateSubnet-${each.key}"
   }
 }
 
-output "private_subnet_ids" {
-  value = { for k, v in aws_subnet.private_subnet : k => v.id }
-}

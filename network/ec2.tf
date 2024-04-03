@@ -28,15 +28,15 @@ resource "aws_instance" "bakend_ec2" {
 
   vpc_security_group_ids = [aws_security_group.private_sg.id]
 
-  subnet_id = aws_subnet.xitry_dev_subnet.id
+  subnet_id = aws_subnet.private_subnet[each.key].id
 
   root_block_device {
-    volume_size = 8
+    volume_size = 4
   }
 
   user_data = file("userdata.tpl")
 
   tags = {
-    Name = "xitry_dev"
+    Name = "BackendEC2-${each.key}"
   }
 }
