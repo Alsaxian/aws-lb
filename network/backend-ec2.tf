@@ -42,7 +42,7 @@ resource "aws_instance" "bakend_ec2" {
     volume_size = 8 # must be greater or equal to 8 GB
   }
 
-  user_data = file("templates/userdata.tpl")
+  user_data = file(var.user_data_path)
 
   tags = {
     Name = "BackendEC2-${each.key}"

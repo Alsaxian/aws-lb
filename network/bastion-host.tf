@@ -20,13 +20,9 @@ resource "aws_instance" "bastion_host" {
     volume_size = 8 # must be greater or equal to 8 GB
   }
 
-#   user_data = file("templates/userdata.tpl")
-
   tags = {
     Name = "BastionHost"
   }
-
-#   depends_on = [ aws_route_table_association.private_route_table_association ]
 }
 
 resource "aws_security_group" "bastion_host_sg" {
@@ -53,7 +49,7 @@ resource "aws_security_group" "bastion_host_sg" {
 }
 
 data "external" "get_public_ip" {
-  program = ["sh", "templates/get_public_ip.sh"]
+  program = ["sh", var.get_public_ip_script_path]
 }
 
 resource "aws_vpc_security_group_ingress_rule" "allow_bastion_host" {
