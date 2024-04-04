@@ -3,7 +3,12 @@ resource "aws_vpc" "xitry_vpc" {
   enable_dns_support   = true
   enable_dns_hostnames = true
   tags = {
-    Name = "ProxyVPC"
+    Name = "lb-VPC"
+  }
+  lifecycle {
+    ignore_changes = [
+      tags,
+    ]
   }
 }
 

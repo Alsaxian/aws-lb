@@ -1,7 +1,7 @@
 resource "aws_security_group" "private_sg" {
 
   vpc_id      = aws_vpc.xitry_vpc.id
-  description = "dev security group"
+  description = "backend security group"
 
   name = "private_sg"
 
