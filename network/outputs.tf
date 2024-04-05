@@ -37,3 +37,7 @@ output "private_sg_id" {
 output "my_ip" {
   value = data.external.get_public_ip.result.public_ip
 }
+
+output "backend_names" {
+  value = toset(keys(local.backend_settings))
+}
